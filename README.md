@@ -18,10 +18,11 @@
 ## Відтворення роботи у Google Colab
 
 1. Відкрийте `goit_rdb_hw_03.ipynb` у [Google Colab](https://colab.research.google.com/).
-2. Оберіть **Runtime → Restart session and run all** (або послідовно виконайте всі клітинки зверху вниз). Потрібні інтернет-доступ для встановлення залежностей і завантаження архіву та стандартне середовище Colab.
-3. Перша кодова клітинка встановлює `pgserver`, `psycopg2-binary`, `sqlalchemy`, `pandas`, `pyarrow`, `ucimlrepo`, `sqlparse`, запускає локальний PostgreSQL і показує `SELECT version()`.
-4. Notebook автоматично завантажує вихідний CSV з UCI, створює staging-таблицю та імпортує дані через PostgreSQL `COPY FROM STDIN` (`psycopg2.copy_expert`).
-5. Наступні клітинки створюють типізовану таблицю через DDL, переносять дані через `INSERT INTO ... SELECT`, виконують SQL-аудит і аналітичні запити. Вивід збережено в notebook.
+2. Відкрийте `Середовище виконання` → `Змінити тип середовища виконання` → `Версія середовища виконання` і оберіть `2026.04`.
+3. Оберіть **Runtime → Restart session and run all** (або послідовно виконайте всі клітинки зверху вниз). Потрібні інтернет-доступ для встановлення залежностей і завантаження архіву та стандартне середовище Colab.
+4. Перша кодова клітинка встановлює `pgserver`, `psycopg2-binary`, `sqlalchemy`, `pandas`, `pyarrow`, `ucimlrepo`, `sqlparse`, запускає локальний PostgreSQL і показує `SELECT version()`.
+5. Notebook автоматично завантажує вихідний CSV з UCI, створює staging-таблицю та імпортує дані через PostgreSQL `COPY FROM STDIN` (`psycopg2.copy_expert`).
+6. Наступні клітинки створюють типізовану таблицю через DDL, переносять дані через `INSERT INTO ... SELECT`, виконують SQL-аудит і аналітичні запити. Вивід збережено в notebook.
 
 **Примітка:** `pgserver` працює у тимчасовому середовищі Colab: після скидання сесії базу потрібно створити знову, виконавши notebook від початку. Скрипт скидає власні таблиці `hw3_data_staging` і `hw3_data_clean` перед повторним імпортом. Якщо `data/SeoulBikeData.csv` уже є, він повторно не завантажується.
 
